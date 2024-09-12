@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from .models import Filmes
-from .serializer import FilmesSerializers
+from .models import Filmes, Genero
+from .serializer import FilmesSerializers, GeneroSerializer
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
@@ -33,8 +33,9 @@ class FilmesDetailView(RetrieveUpdateDestroyAPIView):
     queryset = Filmes.objects.all()
     serializer_class = FilmesSerializers
 
-
-    
+class GeneroViews(RetrieveUpdateDestroyAPIView):
+    queryset = Genero.objects.all()
+    serializer_class = GeneroSerializer
     
 
     
